@@ -1,0 +1,24 @@
+
+<Configuration monitorInterval="60">
+<Properties>
+    <Property name="log-path">logs</Property>
+<!--     <Property name="archive">${log-path}/archive</Property> -->
+</Properties>
+<Appenders>
+    <File name="File-Appender" fileName="${log-path}/mylogs.log" >
+        <PatternLayout>
+            <pattern>
+                [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+            </pattern>
+        </PatternLayout>
+    </File>        
+</Appenders>
+<Loggers>
+            <Logger name="app" level="debug" additivity="false">
+               <AppenderRef ref="File-Appender" level="debug"/>               
+           </Logger>
+        <Root level="info">
+            <AppenderRef ref="File-Appender"/>
+        </Root>
+    </Loggers>
+</Configuration>

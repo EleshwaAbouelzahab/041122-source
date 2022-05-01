@@ -35,10 +35,7 @@ public class Driver extends BankUser{
 	   //Main Method
 	   public static void main(String[] arguments) {
 
-		   lg.fatal("this is a fatal message");
-		   lg.error("This is an error message");
-		   lg.debug("this is a debug message");
-			 
+		 	 
 		 Javalin app = Javalin.create().start(7075);
 			
 		 UserController userController = new UserController(app);
@@ -47,10 +44,9 @@ public class Driver extends BankUser{
 		 UserController4 userController4 = new UserController4(app);
 
 
-	       
-		   lg.info("Welcome to MyBank app");
-
 		
+       	
+
 		   	//Main Menu
 		   	while(true) {
 		   		
@@ -63,7 +59,8 @@ public class Driver extends BankUser{
 			    	System.out.println("Please enter your choice: ");
 			    	
 			        ch=obj.nextInt();
-			  
+					   lg.info("Welcome to MyBank app");
+
 			        switch(ch){
 	        //Login case
 	        case 1:
@@ -83,6 +80,7 @@ public class Driver extends BankUser{
 				
 						if(user==null) {
 	      					 System.out.println("Your account can't be found");
+	      					 lg.error("the usernanme is not found.");
 						}
 	      				 else if(BankUser.username.equals(user.username) && BankUser.password.equals(user.password)){
 	      				 
@@ -108,12 +106,16 @@ public class Driver extends BankUser{
 			        //create an account choice
 			        case 2:
 			        	  BankUser.addUser();
+			   		      lg.info("User was added");
+
 			        	  
 			        	  break;
 			        
 			       //to get account status choice
 			        case 3:
 			        	  BankUser.accstatus();
+			   		      lg.info("An account status was asked for");
+
 				          //Operations.menu();
 
 			        	  continue;
@@ -121,12 +123,15 @@ public class Driver extends BankUser{
 			      //employee login in choice
 			        case 4:
 			        	   BankEmployee.employee();
+				   		      lg.info("an employee was loged in");
+
 			        	   break;
 			        
 			        //exit choice
 			        case 5:
+			        	lg.info("Come Again soon!!");
+
 			        	System.out.println("Hope to see you again soon.");
-			 		   lg.info("Come Again soon!!");
 
 			        	System.exit(5);
 			      
@@ -136,6 +141,7 @@ public class Driver extends BankUser{
 			        
 			        //in case the choice wasn't a number from 1 to 5
 			        default:
+			        	lg.error("invalid choice");
 			    		System.out.println("Invalid Option/ Please enter a vaild choice.");
 			    }
 		   	}

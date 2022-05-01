@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import dao.ApplicationIdDAOImpl;
 import dao.ConnectionManager;
 import dao.TransactionsDAOImpl;
@@ -27,7 +30,6 @@ public class Operations {
 	public static int applicationid;
     
     
-    
     public static void menu() {
         	
     		//login Menu
@@ -40,7 +42,12 @@ public class Operations {
 	        	System.out.println("5. Exit");
 
 	        	int ch = obj.nextInt();
+	        	
+	        	
 	        	Operations.search(BankUser.balance);
+	        	
+		 		  
+	        	 Driver.lg.info("second menu!");
 	        	switch(ch) {
 	        				
 			        	case 1: //to check balance
@@ -60,6 +67,7 @@ public class Operations {
 			        		System.exit(1);
 			        		break;
 			        	default:
+			        		Driver.lg.error("Please choose an option:");
 			        		System.out.println("Please choose from the previous menu.");
 			        	   }
     		}
@@ -93,6 +101,7 @@ public class Operations {
   	        }
   	  }catch (SQLException e) {
 	        e.printStackTrace();}
+
   }
     
 
@@ -272,12 +281,17 @@ public class Operations {
 		}else {
 			System.out.println("You don't have sufficient funds.");
 			}
+		
+	      Driver.lg.info("Withdrawal happened here.");
+
 	   }
 	
 	//checkbalance method
 	public static void checkBalance(int balance) {
 		balance=Operations.search(balance);
 		System.out.println("Your availabe balance is:  $ "+balance);
+	      Driver.lg.info("Checkbalance happened here.");
+
 	}
 	
 	//Deposit method
@@ -291,6 +305,8 @@ public class Operations {
 			Operations.transfermation(depamount);
 			System.out.println("<------Your deposit was successful----->");
 			System.out.println("Your availabe balance is:  $ "+Operations.balance);
+		      Driver.lg.info("Deposit happened here.");
+
 		}
 	
 	

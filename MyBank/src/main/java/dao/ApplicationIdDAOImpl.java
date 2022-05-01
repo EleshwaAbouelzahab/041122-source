@@ -76,27 +76,37 @@ public ApplicationIdModel getapplication(String username){
 
 
 
-	public void updateapplication(ApplicationIdModel user) {
+	
         
-	Connection connection = ConnectionManager.getConnection();
+		public void updateapplication(ApplicationIdModel user) {
+	        
+			Connection connection = ConnectionManager.getConnection();
 
-        try {
-        	PreparedStatement statement = connection.prepareStatement
-        			("update applications set balance =? where applicationid=?");
-			
-        	statement.setInt(1,user.balance);
-            statement.setInt(2, user.applicationid);
-			
-			
-             
-  
-			statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-                 }
-         
-	return;
-}
+		        try {
+		        	PreparedStatement statement = connection.prepareStatement
+		        			("update applications set balance =? where applicationid=?");
+					
+		        	statement.setInt(1,user.balance);
+		            statement.setInt(2, user.applicationid);
+					
+					
+		             
+		  
+					statement.execute();
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		                 }
+		         
+			return;
+		}
+
+
+
+	public void updateapplication(String username) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 

@@ -126,9 +126,9 @@ public class BankUser{
 			phonenumber=obj.next();
 			System.out.println("Email: ");
 			email=obj.next();
-//			SYSTEM.OUT.PRINTLN("PLEASE CHOOSE YOUR ACCOUNT TYPE:");
-//			SYSTEM.OUT.PRINTLN("CHECKING, SAVING, OR JOINT ");
-//			ACCOUNTTYPE=OBJ.NEXT();
+			System.out.println("PLEASE CHOOSE YOUR ACCOUNT TYPE:");
+			System.out.println("CHECKING, SAVING, OR JOINT ");
+			accounttype=obj.next();
 			System.out.println("Username: ");
 			username=obj.next();
 			System.out.println("Password: ");
@@ -148,10 +148,9 @@ public class BankUser{
 					
 						UserInfoImpl dao1 = new UserInfoImpl();
 						 dao1.addUser(username);
-//					 
-//					
-//					ApplicationIdDAOImpl dao = new ApplicationIdDAOImpl();
-//					ApplicationIdModel user = dao.newapplication(username);
+										
+//					ApplicationIdDAOImpl dao2 = new ApplicationIdDAOImpl();
+//					dao2.updateapplication(username);
 //				 
 					
 //					ConnectionManager.getConnection().prepareStatement
